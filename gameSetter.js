@@ -27,22 +27,24 @@ const setBlocks = () => {
     let betweenMargin = 10
     let amount = floor((width - 40) / 20)
     let blockSize = 20
-    
-    
+
+
 
     for (let i = 0; i <= amount; i++) {
 
         let incrementX = i * blockSize + sideMargin
 
-        blocks.push(new Block(incrementX, 100))
+                blocks.push(new Block(incrementX, 100))
 
-        blocks.push(new Block(incrementX, 200))
+                blocks.push(new Block(incrementX, 200))
 
-        blocks.push(new Block(incrementX, 300))
+                blocks.push(new Block(incrementX, 300))
 
-        blocks.push(new Block(incrementX, 400))
+                blocks.push(new Block(incrementX, 400))
 
-        blocks.push(new Block(incrementX, 500))
+                blocks.push(new Block(incrementX, 500))
+
     }
+
 }
 //function which sets blocks on it's places

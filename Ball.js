@@ -6,7 +6,7 @@ class Ball {
 
         this.angle = 0
 
-        this.speedX = 1
+        this.speedX = 0
         this.speedY = -3
 
         this.dirX = 1
@@ -69,10 +69,10 @@ class Ball {
 
 
                     if (ballOnleft) {
-                        this.angle -= 0.25
+/*                        this.angle -= 0.25*/
                     }
                     if (ballOnRight) {
-                        this.angle += 0.25
+ /*                       this.angle += 0.25*/
                     }
 
                 }
@@ -81,7 +81,7 @@ class Ball {
         }
         return this
     }
-    //it checks if ball is moving (launched) And then if ball on same height with "player" it checks if it's on same X coordinates as player.If so - it means it should reflect (Y) And then just to make more interesting interactions - it changes angle if it's on right side to right and opposite for left
+    //it checks if ball is moving (launched) And then if ball on same height with "player" it checks if it's on same X coordinates as player.If so - it means it should reflect (Y) And then just to make more interesting interactions - it changes angle if it's on right side to right and opposite for left 
 
     death() {
         if (this.y >= height) {

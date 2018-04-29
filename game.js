@@ -41,15 +41,23 @@ function draw() {
         .launch()
     //launches ball's methods
 
+    let currentDirX = ball.dirX,
+        currentDirY = ball.dirY
+
     for (let i = 0; i < blocks.length; i++) {
 
-        blocks[i].refresh().destroy()
+        blocks[i].refresh().destroy(currentDirX,currentDirY)
+
+
+
+
+
 
         if (blocks[i].destroyed === true) {
             blocks.splice(i, 1)
         }
-
     }
+
     //loop launches block's methods and if one of them have destroyed property set to true - destroyes it.
 
     mouseIsClicked = false

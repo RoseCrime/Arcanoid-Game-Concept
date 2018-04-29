@@ -25,6 +25,7 @@ class Player {
 
     move() {
         if (keyIsPressed) {
+            
             if (keyCode === LEFT_ARROW &&
                 this.x >= 0 + 1 / 2 * this.width) {
 

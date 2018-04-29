@@ -32,7 +32,9 @@ class Block {
         //method show blocks on screen
     }
 
-    destroy() {
+    destroy(currentDirX,currentDirY) {
+
+
         let distance = dist(ball.x, ball.y, this.x, this.y)
         //counts distance between each block and ball
 
@@ -48,7 +50,7 @@ class Block {
                 onLeft = ball.x - this.x < 10,
                 onTop = ball.y - this.y < 10,
                 onBot = ball.y - this.y > 10
-            //some tryes to check on which side of block ball is, will not work properly, cause ball could be on 0
+
 
 
 
@@ -56,25 +58,22 @@ class Block {
                 distY = abs(ball.y - this.y)
             //removes negative "-"
 
-            /*                        if (distX <= 10) {
-                                        ball.dirX *= -1
-                                        }
-                                        else if (distY <= 10) {
-                                            ball.dirY *= -1
-                                        }*/
-            //first tryes to check distances...guess useless
 
 
-            if ((onRight || onLeft) && distX <= 10) {
+
+            if (((onRight || onLeft) && currentDirX === ball.dirX)) {
+                console.log("x");
                 ball.dirX *= -1
-
                 this.destroyed = true
+
+
             }
             //it supposed to be if ball hit right or left side of block - reverse X speed and destryo block
-            if ((onTop || onBot) && distY <= 10) {
-                ball.dirY *= -1
+            if (((onTop || onBot) && currentDirY === ball.dirY)) {
 
+                ball.dirY *= -1
                 this.destroyed = true
+                console.log("Y");
             }
 
         }
