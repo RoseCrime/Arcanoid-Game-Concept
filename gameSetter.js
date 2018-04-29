@@ -1,8 +1,10 @@
 const gameSetter = () => {
     player = new Player()
     ball = new Ball(player.x, player.y - player.height, player.height)
+    //creates ball and player
 
     setBlocks()
+    //sets blocks on it's positions
 
 }
 const panelRefresher = () => {
@@ -15,6 +17,7 @@ const panelRefresher = () => {
     stroke(200, 155, 155)
     fill(255)
     text('Lives left:' + lives, width - txtWidth, 20, txtWidth, 20)
+    //refreshes texts, showing lives each frame
 
 }
 
@@ -24,10 +27,8 @@ const setBlocks = () => {
     let betweenMargin = 10
     let amount = floor((width - 40) / 20)
     let blockSize = 20
-
-
-
-
+    
+    
 
     for (let i = 0; i <= amount; i++) {
 
@@ -44,3 +45,4 @@ const setBlocks = () => {
         blocks.push(new Block(incrementX, 500))
     }
 }
+//function which sets blocks on it's places

@@ -11,7 +11,8 @@ class Ball {
 
         this.dirX = 1
         this.dirY = 1
-
+        //ball coordinates and properties, depends from player's coordinates.
+        //move sets to true only when ball was launched
     }
 
     refresh() {
@@ -22,7 +23,7 @@ class Ball {
 
         return this
     }
-
+    //visually shows and refreshes ball position
     launch() {
         let SPACE = 32
 
@@ -32,6 +33,7 @@ class Ball {
 
         return this
     }
+    //launches ball when "space" pressed
 
     wallReflect() {
 
@@ -45,6 +47,7 @@ class Ball {
 
         return this
     }
+    //reflects ball from walls.
 
     playerReflect() {
 
@@ -77,8 +80,8 @@ class Ball {
 
         }
         return this
-
     }
+    //it checks if ball is moving (launched) And then if ball on same height with "player" it checks if it's on same X coordinates as player.If so - it means it should reflect (Y) And then just to make more interesting interactions - it changes angle if it's on right side to right and opposite for left
 
     death() {
         if (this.y >= height) {
@@ -87,6 +90,7 @@ class Ball {
         }
         return this
     }
+    //if ball falled down on screen - method remove live and reset ball back on player.
 
     reset() {
         this.moving = false
@@ -96,7 +100,7 @@ class Ball {
 
         return this
     }
-
+    //resets ball back on player and reset speed and angle.
     move(playerX, playerY) {
 
         if (this.moving) {
@@ -111,5 +115,6 @@ class Ball {
         return this
 
     }
-
+    //If ball moving - it counts it's speed + angle
+    //if not - ball stays on player.
 }

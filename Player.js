@@ -5,6 +5,8 @@ class Player {
 
         this.x = 1 / 2 * width
         this.y = height - this.height
+        
+        //player's coordinates, width and height, depends from window size.
 
     }
 
@@ -17,6 +19,8 @@ class Player {
         fill(0, 230, 150)
         rect(this.x, this.y, this.width, this.height)
         return this
+        
+        //refreshes player and it moves, just shows and refreshes it.
     }
 
     move() {
@@ -33,6 +37,7 @@ class Player {
                 this.x += 3
             }
             return this
+            //When player press Left and right arrow moves it to right or left for 3px each frame
         }
     }
 }
