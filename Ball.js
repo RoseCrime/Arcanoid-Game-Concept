@@ -2,11 +2,11 @@ class Ball {
     constructor(playerX, playerY) {
         this.moving = false
 
-        this.radius = 20
+        this.diameter = 20
 
         this.angle = 0
 
-        this.speedX = 0
+        this.speedX = 0 
         this.speedY = -3
 
         this.dirX = 1
@@ -19,7 +19,7 @@ class Ball {
         strokeWeight(2)
         stroke(247, 209, 9)
         fill(0)
-        ellipse(this.x, this.y, this.radius)
+        ellipse(this.x, this.y, this.diameter)
 
         return this
     }
@@ -37,11 +37,11 @@ class Ball {
 
     wallReflect() {
 
-        if (this.x >= width - this.radius || this.x <= 0 + this.radius) {
+        if (this.x >= width - this.diameter || this.x <= 0 + this.diameter) {
             this.dirX *= -1
 
         }
-        if (this.y <= 0 + this.radius) {
+        if (this.y <= 0 + this.diameter) {
             this.dirY *= -1
         }
 
@@ -51,8 +51,8 @@ class Ball {
 
     playerReflect() {
 
-        let sameHeight = this.y + this.radius > player.y &&
-            this.y + this.radius <= player.y + player.height,
+        let sameHeight = this.y + this.diameter > player.y &&
+            this.y + this.diameter <= player.y + player.height,
             beyondRightSide = this.x > player.x + 1 / 2 * player.width,
             beyondLeftSide = this.x < player.x - 1 / 2 * player.width
 
@@ -69,10 +69,10 @@ class Ball {
 
 
                     if (ballOnleft) {
-/*                        this.angle -= 0.25*/
+                        this.angle -= 0.25
                     }
                     if (ballOnRight) {
- /*                       this.angle += 0.25*/
+                        this.angle += 0.25
                     }
 
                 }
@@ -94,8 +94,10 @@ class Ball {
 
     reset() {
         this.moving = false
-        this.dirY = 3
-        this.dirX = 0
+        this.dirY = -1
+        this.dirX = 1
+        this.speedX = 0
+        this.speedY = -3
         this.angle = 0
 
         return this
@@ -104,14 +106,13 @@ class Ball {
     move(playerX, playerY) {
 
         if (this.moving) {
-            this.x += this.dirX * this.speedX + this.angle
-            this.y += this.dirY * this.speedY + this.angle
+            this.x += (this.dirX) * (this.speedX + this.angle)
+            this.y += (this.dirY) * this.speedY
         }
         if (!this.moving) {
             this.x = playerX
             this.y = playerY - player.height
         }
-
         return this
 
     }

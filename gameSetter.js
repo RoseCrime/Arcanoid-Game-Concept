@@ -5,7 +5,6 @@ const gameSetter = () => {
 
     setBlocks()
     //sets blocks on it's positions
-
 }
 const panelRefresher = () => {
     textSize(20)
@@ -43,7 +42,6 @@ const setBlocks = () => {
                 blocks.push(new Block(incrementX, 400))
 
                 blocks.push(new Block(incrementX, 500))
-
     }
 
 }

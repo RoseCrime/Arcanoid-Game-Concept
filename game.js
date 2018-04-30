@@ -49,10 +49,6 @@ function draw() {
         blocks[i].refresh().destroy(currentDirX,currentDirY)
 
 
-
-
-
-
         if (blocks[i].destroyed === true) {
             blocks.splice(i, 1)
         }

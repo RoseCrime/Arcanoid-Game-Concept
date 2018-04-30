@@ -5,7 +5,6 @@ class Player {
 
         this.x = 1 / 2 * width
         this.y = height - this.height
-        
         //player's coordinates, width and height, depends from window size.
 
     }
