@@ -29,7 +29,13 @@ function draw() {
     panelRefresher()
     //refreshes game panels , like lives and some other in future.
 
+    let currentDirX = ball.dirX,
+        currentDirY = ball.dirY
+    //stores current direction of ball , to not reflect twice per frame.
 
+
+    gameBorder.refresh()
+    
     player.refresh().move()
     //launches player's methods.
 
@@ -41,19 +47,18 @@ function draw() {
         .launch()
     //launches ball's methods
 
-    let currentDirX = ball.dirX,
-        currentDirY = ball.dirY
 
+
+    
+    
     for (let i = 0; i < blocks.length; i++) {
 
         blocks[i].refresh().destroy(currentDirX, currentDirY)
-
 
         if (blocks[i].destroyed === true) {
             blocks.splice(i, 1)
         }
     }
-
     //loop launches block's methods and if one of them have destroyed property set to true - destroyes it.
 
     mouseIsClicked = false

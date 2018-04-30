@@ -1,4 +1,5 @@
 const gameSetter = () => {
+    gameBorder = new GameBorder()
     player = new Player()
     ball = new Ball(player.x, player.y - player.height, player.height)
     //creates ball and player
@@ -16,34 +17,28 @@ const panelRefresher = () => {
     stroke(200, 155, 155)
     fill(255)
     text('Lives left:' + lives, width - txtWidth, 20, txtWidth, 20)
-    //refreshes texts, showing lives each frame
-
+    //refreshes texts, showing lives
 }
 
 const setBlocks = () => {
 
-    let sideMargin = 20
-    let betweenMargin = 10
-    let itemsInRow = floor((width - 40) / 20)
-    let blockSize = 20
+    let sidesMargin = 75
+    let btwBlocksX = 2
+    let blockSize = width / 20
+    let itemsInRow = floor((width - sidesMargin * 2) / (blockSize + btwBlocksX))
+    let rowAmount = 10
 
-    let topMargin = 75,
-        botMargin = 50
-
-    let rowMargin = (height - topMargin - botMargin) / 5
-
-    let rowAmount = 5
-
+    let rowMargin = (height - sidesMargin - sidesMargin) / rowAmount
 
     for (let i = 0; i < rowAmount; i++) {
         for (let j = 0; j <= itemsInRow; j++) {
 
-            let incrementX = j * blockSize + sideMargin
+            let incrementX = j * blockSize + sidesMargin
 
-            blocks.push(new Block(incrementX, topMargin + rowMargin * i))
+            blocks.push(new Block(incrementX + btwBlocksX * j, sidesMargin + rowMargin * i, blockSize))
 
         }
     }
 
 }
-//function which sets blocks on it's places
+//Sets blocks on it's places
