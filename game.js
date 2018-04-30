@@ -46,7 +46,7 @@ function draw() {
 
     for (let i = 0; i < blocks.length; i++) {
 
-        blocks[i].refresh().destroy(currentDirX,currentDirY)
+        blocks[i].refresh().destroy(currentDirX, currentDirY)
 
 
         if (blocks[i].destroyed === true) {
@@ -76,4 +76,14 @@ function mouseClicked() {
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight)
     //resizes canvas when window was resized.
+    let playerBeyondRightSide = player.x + player.width / 2 >= width,
+        playerBeyondLeftSide = player.x - player.width / 2 <= 0
+
+    if (playerBeyondRightSide) {
+        player.x = width - player.width / 2
+    }
+    if (playerBeyondLeftSide) {
+        player.x = 0 + player.width / 2
+    }
+    //conditions to not let player go beyond window.
 }

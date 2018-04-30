@@ -17,14 +17,15 @@ class Player {
         stroke(255, 100, 100)
         fill(0, 230, 150)
         rect(this.x, this.y, this.width, this.height)
+
         return this
-        
-        //refreshes player and it moves, just shows and refreshes it.
+
+        //refreshes player and it's movement.Visuals.
     }
 
     move() {
         if (keyIsPressed) {
-            
+
             if (keyCode === LEFT_ARROW &&
                 this.x >= 0 + 1 / 2 * this.width) {
 
@@ -36,8 +37,9 @@ class Player {
 
                 this.x += 3
             }
-            return this
+
             //When player press Left and right arrow moves it to right or left for 3px each frame
         }
+        return this
     }
 }

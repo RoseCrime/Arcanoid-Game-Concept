@@ -24,24 +24,25 @@ const setBlocks = () => {
 
     let sideMargin = 20
     let betweenMargin = 10
-    let amount = floor((width - 40) / 20)
+    let itemsInRow = floor((width - 40) / 20)
     let blockSize = 20
 
+    let topMargin = 75,
+        botMargin = 50
+
+    let rowMargin = (height - topMargin - botMargin) / 5
+
+    let rowAmount = 5
 
 
-    for (let i = 0; i <= amount; i++) {
+    for (let i = 0; i < rowAmount; i++) {
+        for (let j = 0; j <= itemsInRow; j++) {
 
-        let incrementX = i * blockSize + sideMargin
+            let incrementX = j * blockSize + sideMargin
 
-                blocks.push(new Block(incrementX, 100))
+            blocks.push(new Block(incrementX, topMargin + rowMargin * i))
 
-                blocks.push(new Block(incrementX, 200))
-
-                blocks.push(new Block(incrementX, 300))
-
-                blocks.push(new Block(incrementX, 400))
-
-                blocks.push(new Block(incrementX, 500))
+        }
     }
 
 }
