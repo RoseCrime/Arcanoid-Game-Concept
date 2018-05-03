@@ -10,7 +10,7 @@ class Ball {
         this.speedY = -3
 
         this.dirX = 1
-        this.dirY = 1
+        this.dirY = -1
         //ball coordinates and properties, depends from player's coordinates.
         //move sets to true only when ball was launched
     }

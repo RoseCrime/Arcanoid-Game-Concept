@@ -1,5 +1,5 @@
 class Block {
-    constructor(x, y,size) {
+    constructor(x, y, size) {
         this.x = x
         this.y = y
         //coordinates of each block, goes into gamesetter,which give each block coordinates.
@@ -36,10 +36,10 @@ class Block {
 
         if (intersection) {
 
-            let onRight = ball.x - this.x > ball.diameter/2,
-                onLeft = ball.x - this.x < ball.diameter/2,
-                onTop = ball.y - this.y < ball.diameter/2,
-                onBot = ball.y - this.y > ball.diameter/2
+            let onRight = ball.x - this.x > ball.diameter / 2,
+                onLeft = ball.x - this.x < ball.diameter / 2,
+                onTop = ball.y - this.y < ball.diameter / 2,
+                onBot = ball.y - this.y > ball.diameter / 2
 
             //conditions to count on which side ball is relatively to rects.
 
@@ -47,17 +47,19 @@ class Block {
                 distY = abs(ball.y - this.y)
             //counts distance without negative sign 
 
-            if (((onRight || onLeft) && (currentDirX === ball.dirX) && distY <= this.size/2)) {
+            if (((onRight || onLeft) && (currentDirX === ball.dirX) && (distY < this.size / 2))) {
 
                 ball.dirX *= -1
                 this.destroyed = true
+
             }
             //if ball on left or right side + direction already wasn't changed in this frame + it doesn't intersects in Y - reflect.
             //removes rects if true.
 
-            if (((onTop || onBot) && (currentDirY === ball.dirY) && distX <= this.size/2)) {
+            if (((onTop || onBot) && (currentDirY === ball.dirY) && (distX < this.size / 2))) {
                 ball.dirY *= -1
                 this.destroyed = true
+
                 //same as before with opposite directions and sides.
             }
 
