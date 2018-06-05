@@ -24,7 +24,7 @@ const setBlocks = () => {
 
     let sidesMargin = 75
     let btwBlocksX = 2
-    let blockSize = width / 20
+    let blockSize = width / 50
     let itemsInRow = floor((width - sidesMargin * 2) / (blockSize + btwBlocksX))
     let rowAmount = 10
 
